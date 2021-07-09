@@ -21,7 +21,13 @@ API.interceptors.request.use((req)=>{
        })
  */
 // Connection between backend and front end  for user Authentication
-export const signIn = (formData) => API.post('/user/signin',formData);
+export const signIn = (formData) => {
+    API.post('/user/signin',formData).then((response)=>{
+        console.log("response",response.data)
+    }).catch((error)=>{
+        console.log("error is",SyntaxError)
+    })
+};
 export const signUp = (formdata) => API.post('/user/signup',formdata);
 
 // end of backend and front end  for user Authentication
